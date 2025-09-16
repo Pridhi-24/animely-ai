@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import heroImage from "@/assets/hero-anime-tracker.jpg";
+import AnimeCarousel from "@/components/AnimeCarousel";
+import heroImage from "@/assets/anime-heroes-collage.jpg";
 import { MessageCircle, Users, Zap, Heart, Star, TrendingUp, Bot } from "lucide-react";
 
 const LandingPage = () => {
@@ -68,12 +69,12 @@ const LandingPage = () => {
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
                 Your Anime Universe
                 <span className="bg-gradient-primary bg-clip-text text-transparent block">
-                  Powered by AI
+                  AI-Powered Community
                 </span>
               </h1>
               <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Track, discover, and connect with fellow anime fans. Get AI recommendations, 
-                build your personality profile, and join the ultimate anime social network.
+                Connect with anime fans worldwide! Get personalized AI recommendations, 
+                track your favorite series, and join the ultimate otaku community with real-time discussions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button size="lg" variant="gradient" className="text-primary-foreground">
@@ -143,6 +144,9 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Featured Anime Carousel */}
+      <AnimeCarousel />
 
       {/* CTA Section */}
       <section className="py-16 border-t border-border">

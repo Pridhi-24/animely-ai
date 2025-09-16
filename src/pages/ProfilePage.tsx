@@ -5,6 +5,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
+import profileBanner from "@/assets/profile-banner-anime.jpg";
+import aotPoster from "@/assets/anime-poster-aot.jpg";
+import demonSlayerPoster from "@/assets/anime-poster-demon-slayer.jpg";
+import jjkPoster from "@/assets/anime-poster-jjk.jpg";
 import { 
   Heart, 
   Star, 
@@ -33,9 +37,9 @@ const ProfilePage = () => {
   ];
 
   const currentlyWatching = [
-    { title: "Attack on Titan", episode: "S4E15", progress: 75, cover: "/placeholder-anime1.jpg" },
-    { title: "Demon Slayer", episode: "S3E8", progress: 60, cover: "/placeholder-anime2.jpg" },
-    { title: "Jujutsu Kaisen", episode: "S2E12", progress: 90, cover: "/placeholder-anime3.jpg" }
+    { title: "Attack on Titan", episode: "S4E15", progress: 75, cover: aotPoster },
+    { title: "Demon Slayer", episode: "S3E8", progress: 60, cover: demonSlayerPoster },
+    { title: "Jujutsu Kaisen", episode: "S2E12", progress: 90, cover: jjkPoster }
   ];
 
   const recentActivity = [
@@ -64,8 +68,12 @@ const ProfilePage = () => {
       {/* Profile Header */}
       <div className="relative pt-16">
         {/* Banner */}
-        <div className="h-64 bg-gradient-primary relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/20"></div>
+        <div className="h-64 relative overflow-hidden" style={{
+          backgroundImage: `url(${profileBanner})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}>
+          <div className="absolute inset-0 bg-gradient-primary/40"></div>
           <div className="absolute bottom-4 left-4 right-4">
             <div className="flex items-end space-x-6">
               <Avatar className="w-24 h-24 border-4 border-background glow-primary">
@@ -146,7 +154,13 @@ const ProfilePage = () => {
               <CardContent className="space-y-4">
                 {currentlyWatching.map((anime, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="w-16 h-20 bg-muted rounded-lg flex-shrink-0 bg-gradient-primary/20"></div>
+                    <div className="w-16 h-20 rounded-lg flex-shrink-0 overflow-hidden">
+                      <img 
+                        src={anime.cover} 
+                        alt={anime.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                     <div className="flex-1 min-w-0">
                       <h4 className="font-medium truncate">{anime.title}</h4>
                       <p className="text-sm text-muted-foreground">{anime.episode}</p>

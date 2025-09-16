@@ -125,7 +125,7 @@
     box-shadow: var(--glow-accent);
   }
 
-  /* Anime-style animations */
+/* Anime-style animations */
   .anime-float {
     animation: anime-float 6s ease-in-out infinite;
   }
@@ -136,6 +136,10 @@
   
   .anime-slide-up {
     animation: anime-slide-up 0.8s ease-out forwards;
+  }
+
+  .animate-slide-x {
+    animation: slide-x 30s linear infinite;
   }
 }
 
@@ -162,4 +166,9 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes slide-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
